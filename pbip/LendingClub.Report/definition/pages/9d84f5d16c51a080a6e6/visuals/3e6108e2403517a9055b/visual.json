@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "3e6108e2403517a9055b",
+  "position": {
+    "x": 579.69604863221889,
+    "y": 152.70516717325228,
+    "z": 2000,
+    "height": 122.55319148936171,
+    "width": 665.28875379939211,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Estimated Excess Loss"
+                }
+              },
+              "queryRef": "_Measures.Estimated Excess Loss",
+              "nativeQueryRef": "Estimated Excess Loss"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Stressed Excess Loss"
+                }
+              },
+              "queryRef": "_Measures.Stressed Excess Loss",
+              "nativeQueryRef": "Stressed Excess Loss"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Excess Loss Uplift (bps)"
+                }
+              },
+              "queryRef": "_Measures.Excess Loss Uplift (bps)",
+              "nativeQueryRef": "Excess Loss Uplift (bps)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Estimated Excess Loss"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "value": [
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#8B5CF6'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Estimated Excess Loss"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ebb317d28821a2b5b6e3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Estimated Excess Loss"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "8623bcbb2604bb95ec66",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Excess Loss Uplift (bps)"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "796d442b4c4ce5054133",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Stressed Excess Loss"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,307 @@
+table Fact_Loan
+	lineageTag: 20f1d727-235f-4eb6-bf17-7f6913a8b11f
+
+	column loan_amnt
+		dataType: double
+		lineageTag: 239165bc-7042-4608-b209-9bea1796c764
+		summarizeBy: sum
+		sourceColumn: loan_amnt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column funded_amnt
+		dataType: double
+		lineageTag: da3ee60e-d844-489a-be6b-07083bf6763d
+		summarizeBy: sum
+		sourceColumn: funded_amnt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column term
+		dataType: int64
+		formatString: 0
+		lineageTag: 18ac2829-c2b4-4701-9a59-e0c5faea0ad0
+		summarizeBy: sum
+		sourceColumn: term
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column int_rate
+		dataType: double
+		lineageTag: 790f5979-70a9-4f54-b07c-acd658bd7969
+		summarizeBy: sum
+		sourceColumn: int_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column installment
+		dataType: double
+		lineageTag: 946b84e6-cb7a-4b55-9f5b-b67b5f4a5f9d
+		summarizeBy: sum
+		sourceColumn: installment
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column home_ownership
+		dataType: string
+		lineageTag: 5d90b12d-2232-437e-a324-1054c2f4b30a
+		summarizeBy: none
+		sourceColumn: home_ownership
+
+		annotation SummarizationSetBy = Automatic
+
+	column annual_inc
+		dataType: double
+		lineageTag: 67fc015b-f734-41fb-924f-9293ec03f5a9
+		summarizeBy: sum
+		sourceColumn: annual_inc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column issue_d
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cf81cf44-8757-4c58-8dc9-665a848befb6
+		summarizeBy: none
+		sourceColumn: issue_d
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dti
+		dataType: double
+		lineageTag: 4485b416-5a35-4a75-94d0-a457399328ad
+		summarizeBy: sum
+		sourceColumn: dti
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fico_range_low
+		dataType: double
+		lineageTag: cebba8df-f3c9-4171-bfcf-efc57b05763f
+		summarizeBy: sum
+		sourceColumn: fico_range_low
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fico_range_high
+		dataType: double
+		lineageTag: aeac56b2-054a-48e3-9a4d-fd8fffc7f900
+		summarizeBy: sum
+		sourceColumn: fico_range_high
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_pymnt
+		dataType: double
+		lineageTag: cc858646-80f0-4c3b-994a-183ebe6a4863
+		summarizeBy: sum
+		sourceColumn: total_pymnt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_rec_prncp
+		dataType: double
+		lineageTag: 9ae1b252-2175-4e5f-b65e-119818517ac2
+		summarizeBy: sum
+		sourceColumn: total_rec_prncp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_rec_int
+		dataType: double
+		lineageTag: f566df46-af70-4ce5-80fa-c6ef6d73d46d
+		summarizeBy: sum
+		sourceColumn: total_rec_int
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column recoveries
+		dataType: double
+		lineageTag: fd72b377-4394-48e8-8f12-d72680b0ff2e
+		summarizeBy: sum
+		sourceColumn: recoveries
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column collection_recovery_fee
+		dataType: double
+		lineageTag: c24d5ae2-9e52-408f-9c7f-3d28053ca0bf
+		summarizeBy: sum
+		sourceColumn: collection_recovery_fee
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column last_pymnt_d
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 06b43d5e-c26e-40c6-85dd-e6b0e1b4ee3d
+		summarizeBy: none
+		sourceColumn: last_pymnt_d
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column last_credit_pull_d
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8671032f-f96a-44b9-8c44-f154e160aee2
+		summarizeBy: none
+		sourceColumn: last_credit_pull_d
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column last_fico_range_high
+		dataType: double
+		lineageTag: 5888c74a-ef18-4b35-933c-6beee87396f4
+		summarizeBy: sum
+		sourceColumn: last_fico_range_high
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column last_fico_range_low
+		dataType: double
+		lineageTag: 2247f00a-103b-44d6-bbcd-2627da902306
+		summarizeBy: sum
+		sourceColumn: last_fico_range_low
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LoanKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e327e2b-f385-4a3c-b4f1-7f2a7041efb6
+		summarizeBy: count
+		sourceColumn: LoanKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 51885e48-cd81-4b0c-8df2-334eb900c7cb
+		summarizeBy: none
+		sourceColumn: GradeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurposeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c5ab37b-ec03-4ce3-b039-c582673a0d17
+		summarizeBy: none
+		sourceColumn: PurposeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: fd60cbdb-7735-4d12-8e84-8310b9a02e50
+		summarizeBy: none
+		sourceColumn: StateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column EmpLengthKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 14f0b70a-5dcd-4488-9598-523ac6996888
+		summarizeBy: none
+		sourceColumn: EmpLengthKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoanStatusKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 43832189-fe04-4240-9ee9-2d5b6c734eb6
+		summarizeBy: none
+		sourceColumn: LoanStatusKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttributesKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 132f9f41-3d8e-483b-a322-580be2155188
+		summarizeBy: none
+		sourceColumn: AttributesKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Months on Book' = DATEDIFF(Fact_Loan[issue_d], Fact_Loan[last_pymnt_d], MONTH)
+		formatString: 0
+		lineageTag: 57826b08-378b-4821-8a93-3270a97af14d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Vintage Mature' = DATEDIFF(Fact_Loan[issue_d], MAX(Fact_Loan[last_credit_pull_d]), MONTH) >= Fact_Loan[term]
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 03f8280e-eeed-443f-9e00-ae6347ed8ba2
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_Loan = m
+		mode: import
+		source =
+				let
+				    Source = Staging_Loans,
+				    #"Merged Queries" = Table.NestedJoin(Source, {"sub_grade"}, Dim_Grade, {"sub_grade"}, "Dim_Grade", JoinKind.LeftOuter),
+				    #"Expanded Dim_Grade" = Table.ExpandTableColumn(#"Merged Queries", "Dim_Grade", {"GradeKey"}, {"GradeKey"}),
+				    #"Merged Queries1" = Table.NestedJoin(#"Expanded Dim_Grade", {"purpose"}, Dim_Purpose, {"purpose"}, "Dim_Purpose", JoinKind.LeftOuter),
+				    #"Expanded Dim_Purpose" = Table.ExpandTableColumn(#"Merged Queries1", "Dim_Purpose", {"PurposeKey"}, {"PurposeKey"}),
+				    #"Merged Queries2" = Table.NestedJoin(#"Expanded Dim_Purpose", {"addr_state"}, Dim_Geography, {"addr_state"}, "Dim_Geography", JoinKind.LeftOuter),
+				    #"Expanded Dim_Geography" = Table.ExpandTableColumn(#"Merged Queries2", "Dim_Geography", {"StateKey"}, {"StateKey"}),
+				    #"Merged Queries3" = Table.NestedJoin(#"Expanded Dim_Geography", {"emp_length"}, Dim_EmpLength, {"emp_length"}, "Dim_EmpLength", JoinKind.LeftOuter),
+				    #"Expanded Dim_EmpLength" = Table.ExpandTableColumn(#"Merged Queries3", "Dim_EmpLength", {"EmpLengthKey"}, {"EmpLengthKey"}),
+				    #"Merged Queries4" = Table.NestedJoin(#"Expanded Dim_EmpLength", {"loan_status"}, Dim_LoanStatus, {"loan_status"}, "Dim_LoanStatus", JoinKind.LeftOuter),
+				    #"Expanded Dim_LoanStatus" = Table.ExpandTableColumn(#"Merged Queries4", "Dim_LoanStatus", {"LoanStatusKey"}, {"LoanStatusKey"}),
+				    #"Merged Queries5" = Table.NestedJoin(#"Expanded Dim_LoanStatus", {"verification_status", "initial_list_status", "application_type"}, Dim_LoanAttributes, {"verification_status", "initial_list_status", "application_type"}, "Dim_LoanAttributes", JoinKind.LeftOuter),
+				    #"Expanded Dim_LoanAttributes" = Table.ExpandTableColumn(#"Merged Queries5", "Dim_LoanAttributes", {"AttributesKey"}, {"AttributesKey"}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Expanded Dim_LoanAttributes",{"loan_amnt", "funded_amnt", "term", "int_rate", "installment", "home_ownership", "annual_inc", "issue_d", "dti", "fico_range_low", "fico_range_high", "total_pymnt", "total_rec_prncp", "total_rec_int", "recoveries", "collection_recovery_fee", "last_pymnt_d", "last_credit_pull_d", "last_fico_range_high", "last_fico_range_low", "LoanKey", "GradeKey", "PurposeKey", "StateKey", "EmpLengthKey", "LoanStatusKey", "AttributesKey"})
+				in
+				    #"Removed Other Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

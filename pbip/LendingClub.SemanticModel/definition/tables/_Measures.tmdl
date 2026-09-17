@@ -1,0 +1,275 @@
+table _Measures
+	lineageTag: 0392acd0-16eb-45e9-a88f-4cb07eb16fab
+
+	measure 'Weighted Avg Rate' =
+			
+			DIVIDE(
+			    SUMX(Fact_Loan, Fact_Loan[funded_amnt] * Fact_Loan[int_rate]),
+			    SUM(Fact_Loan[funded_amnt])
+			) / 100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4a0395ae-8194-41af-9564-4cbd50a25963
+
+	measure 'Resolved Loan Count' =
+			
+			CALCULATE(
+			    COUNTROWS(Fact_Loan),
+			    Dim_LoanStatus[RiskFlag] IN {"Resolved-Good", "Resolved-Bad"}
+			)
+		formatString: 0
+		lineageTag: 0db9ecb1-5c9a-45af-b0fa-d42ebe8c89a8
+
+	measure 'Pct Book Open' = 1 - DIVIDE([Resolved Loan Count], COUNTROWS(Fact_Loan))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 439ba2e9-e5c6-4b94-bb9d-fffe05b7ea2f
+
+	measure 'Charge-off Rate' =
+			
+			DIVIDE(
+			    CALCULATE(COUNTROWS(Fact_Loan), Dim_LoanStatus[RiskFlag] = "Resolved-Bad"),
+			    [Resolved Loan Count]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6fbb8f38-e1fc-4553-9b2a-2a09258ea5d7
+
+	measure 'Net Loss Rate' =
+			
+			VAR ResolvedLoans =
+			    CALCULATETABLE(
+			        Fact_Loan,
+			        Dim_LoanStatus[RiskFlag] IN {"Resolved-Good", "Resolved-Bad"}
+			    )
+			VAR TotalNetLoss =
+			    SUMX(
+			        ResolvedLoans,
+			        IF(
+			            RELATED(Dim_LoanStatus[RiskFlag]) = "Resolved-Bad",
+			            Fact_Loan[funded_amnt] - Fact_Loan[total_rec_prncp] - (Fact_Loan[recoveries] - Fact_Loan[collection_recovery_fee]),
+			            0
+			        )
+			    )
+			VAR TotalFunded = SUMX(ResolvedLoans, Fact_Loan[funded_amnt])
+			RETURN
+			    DIVIDE(TotalNetLoss, TotalFunded)
+		formatString: 0.0000
+		lineageTag: b5e27691-638d-422b-9306-149650f0a9bb
+
+	measure 'Risk-Adjusted Yield' = [Weighted Avg Rate] - [Annualized Net Loss Rate]
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 88490b77-f533-4e0f-926a-8d44874059a8
+
+	measure 'Annualized Net Loss Rate' = DIVIDE([Net Loss Rate], AVERAGE(Fact_Loan[Term]) / 12)
+		formatString: 0.0000
+		lineageTag: 23d4e751-00bc-497e-90b2-096638be8bf3
+
+	measure 'Grade Avg Net Loss Rate' =
+			
+			CALCULATE([Net Loss Rate], ALLEXCEPT(Fact_Loan, Dim_Grade))
+		formatString: 0.0000
+		lineageTag: 01982086-20c8-4d10-bc82-119bc2a28a50
+
+	measure 'Mispricing Gap' = [Net Loss Rate] - [Grade Avg Net Loss Rate]
+		formatString: 0.0000%;-0.0000%;0.0000%
+		lineageTag: cd065053-6489-4e61-a0c2-5ffbfc2ec67f
+
+	measure 'Total Exposure' = SUM(Fact_Loan[funded_amnt])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 06aa498c-7482-4fa5-a45d-4bdace0322c7
+
+	measure 'Estimated Excess Loss' =
+			
+			CALCULATE(
+			    SUMX(
+			        SUMMARIZE(Fact_Loan, Dim_Grade[grade], Dim_Purpose[purpose]),
+			        [Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
+			    ),
+			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+			)
+		lineageTag: 0275f9fe-ee86-43ec-8d6b-ac31469c1e8d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Loans' = COUNTROWS(Fact_Loan)
+		formatString: 0
+		lineageTag: 1eda26f9-bb3c-4fb8-80f8-1fbbb7333eda
+
+	measure 'Cumulative Bad Rate by MOB' = ```
+			
+			VAR CurrentMOB = 
+			    CALCULATE(
+			        MAX(Fact_Loan[Months on Book]),
+			        ALL(Dim_Date[Year])
+			    )
+			VAR VintageTotal = 
+			    CALCULATE(
+			        COUNTROWS(Fact_Loan),
+			        ALL(Fact_Loan[Months on Book])
+			    )
+			VAR BadByThisMOB = 
+			    CALCULATE(
+			        COUNTROWS(Fact_Loan),
+			        FILTER(ALL(Fact_Loan[Months on Book]), Fact_Loan[Months on Book] <= CurrentMOB),
+			        Dim_LoanStatus[RiskFlag] = "Resolved-Bad"
+			    )
+			RETURN DIVIDE(BadByThisMOB, VintageTotal)
+			```
+		lineageTag: fd53e217-1dc3-4fcb-9784-4ff8b9bc2f1c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Vintage Drift 2011→2016' =
+			
+			CALCULATE([Charge-off Rate], Dim_Date[Year] = 2016, Fact_Loan[Is Vintage Mature] = TRUE)
+			- CALCULATE([Charge-off Rate], Dim_Date[Year] = 2011, Fact_Loan[Is Vintage Mature] = TRUE)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a5859707-2054-491b-8318-82ebf4e2adb8
+
+	measure 'Card 1' = CALCULATE([Charge-off Rate], Dim_Date[Year] = 2016, Fact_Loan[Is Vintage Mature] = TRUE)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b843b43b-5c36-4781-9f90-34a970d4c3df
+
+	measure '1.' = CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: da845909-eb15-4e4a-a5ec-be3f063b80fa
+
+	measure '2.' = CALCULATE([Charge-off Rate], Dim_Date[Year] = 2016)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 42489588-67f0-48de-a16f-82317ff57ae8
+
+	measure '3.' = CALCULATE([Charge-off Rate], Dim_Date[Year] = 2016, Fact_Loan[Is Vintage Mature] = TRUE)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2d737838-0dbf-4c8e-bfa8-99f3d4d59db3
+
+	measure 'Best Mature Vintage' = ```
+			
+			VAR BestRate = 
+			    MINX(
+			        VALUES(Dim_Date[Year]),
+			        CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE)
+			    )
+			VAR BestYear = 
+			    CALCULATE(
+			        MIN(Dim_Date[Year]),
+			        FILTER(
+			            VALUES(Dim_Date[Year]),
+			            CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE) = BestRate
+			        )
+			    )
+			RETURN BestYear & "  ·  " & FORMAT(BestRate, "0.00%")
+			```
+		lineageTag: fb28553b-ad82-4b7d-820f-55b943e53358
+
+	measure 'Worst Mature Vintage' = ```
+			
+			VAR WorstRate = 
+			    MAXX(
+			        VALUES(Dim_Date[Year]),
+			        CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE)
+			    )
+			VAR WorstYear = 
+			    CALCULATE(
+			        MIN(Dim_Date[Year]),
+			        FILTER(
+			            VALUES(Dim_Date[Year]),
+			            CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE) = WorstRate
+			        )
+			    )
+			RETURN WorstYear & "  ·  " & FORMAT(WorstRate, "0.00%")
+			```
+		lineageTag: 551437f3-ba09-42cc-9334-45d3375d902a
+
+	measure 'Mature Loan Count' = CALCULATE(COUNTROWS(Fact_Loan), Fact_Loan[Is Vintage Mature] = TRUE)
+		formatString: 0
+		lineageTag: 03f41558-48ed-4638-9e63-27e96453c7ba
+
+	measure Measure
+		lineageTag: 6ed91623-7da2-48ef-9af2-0ab015f729fd
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'Excess Loss Uplift (bps)' =
+			
+			DIVIDE(
+			    [Estimated Excess Loss],
+			    CALCULATE(SUM(Fact_Loan[funded_amnt]), ALL(Fact_Loan))
+			) * 10000
+		lineageTag: 836c9677-b142-4067-a589-d3bc1ca7efa9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Segment Mispricing Gap' =
+			
+			DIVIDE(
+			    [Estimated Excess Loss],
+			    CALCULATE(
+			        SUM(Fact_Loan[funded_amnt]),
+			        Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+			    )
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d0910ae0-306d-4278-8517-2bc6bcb904da
+
+	measure 'Segment Exposure' =
+			
+			CALCULATE(
+			    SUM(Fact_Loan[funded_amnt]),
+			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+			)
+		lineageTag: 7e477699-b032-401d-8bf1-fced6c2bb13e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Excess Loss Contribution' = [Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
+		lineageTag: cd982e4d-7df9-43ec-a3ba-bc0f5cbc08d6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stressed Grade Avg Net Loss Rate' =
+			
+			[Grade Avg Net Loss Rate] * (1 + SELECTEDVALUE('Charge-off Stress %'[Charge-off Stress %], 0) / 100)
+		lineageTag: d7ea5985-bf5d-44a1-a772-0fec6594efc8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stressed Mispricing Gap' = [Net Loss Rate] - [Stressed Grade Avg Net Loss Rate]
+		lineageTag: cc9d3c0f-126d-4227-bc9b-1feb25cee40c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Stressed Excess Loss' =
+			
+			CALCULATE(
+			    SUMX(
+			        SUMMARIZE(Fact_Loan, Dim_Grade[grade], Dim_Purpose[purpose]),
+			        [Stressed Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
+			    ),
+			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+			)
+		lineageTag: 65ce9835-debb-4f97-921d-45a6c5524351
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Sensitivity Narrative' =
+			
+			"At a " & FORMAT(SELECTEDVALUE('Charge-off Stress %'[Charge-off Stress %], 0), "0") & "% stress, estimated excess loss falls to $" & FORMAT(DIVIDE([Stressed Excess Loss], 1000000), "0.00") & "M (base case: $32.00M) — this estimate is highly sensitive to loss-rate assumptions; treat it as directional support for a cautious pilot, not a guaranteed figure."
+		lineageTag: 853ac276-e0bd-46e2-86d8-6ba9871f7e16
+
+	column Column1
+		dataType: string
+		lineageTag: 0f0c2011-8469-427b-8f69-e355657ed88d
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

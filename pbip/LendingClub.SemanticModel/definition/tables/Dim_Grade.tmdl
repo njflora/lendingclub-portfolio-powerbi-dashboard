@@ -1,0 +1,58 @@
+table Dim_Grade
+	lineageTag: f840d944-f0cb-4606-8148-3c7e749fb667
+
+	column grade
+		dataType: string
+		lineageTag: d1674b2d-4c0c-4cd3-9811-60fd50c0bedd
+		summarizeBy: none
+		sourceColumn: grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_grade
+		dataType: string
+		lineageTag: 665c37f1-486b-4a20-92de-b21c16e5f954
+		summarizeBy: none
+		sourceColumn: sub_grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f1b82bae-8426-4b00-a7be-b4639ea7008d
+		summarizeBy: none
+		sourceColumn: GradeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column GradeSortOrder
+		dataType: string
+		lineageTag: d36831a7-ec29-4f5f-9314-2d4687c6d64c
+		summarizeBy: none
+		sourceColumn: GradeSortOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Grade = m
+		mode: import
+		source =
+				let
+				    Source = Staging_Loans,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"grade", "sub_grade"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "GradeSortOrder", each let
+				        gradeRank = List.PositionOf({"A","B","C","D","E","F","G"}, [grade]),
+				        subNum = Number.FromText(Text.End([sub_grade], 1))
+				    in
+				        gradeRank * 5 + subNum),
+				    #"Sorted Rows" = Table.Sort(#"Added Custom",{{"GradeSortOrder", Order.Ascending}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Sorted Rows", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "GradeKey"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

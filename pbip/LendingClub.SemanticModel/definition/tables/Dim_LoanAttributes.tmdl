@@ -1,0 +1,52 @@
+table Dim_LoanAttributes
+	lineageTag: 601b7f5d-3cf3-4e65-b4ed-18e10cdeab92
+
+	column verification_status
+		dataType: string
+		lineageTag: f8140a5c-9648-4d07-be11-3a9c5389e0ec
+		summarizeBy: none
+		sourceColumn: verification_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column initial_list_status
+		dataType: string
+		lineageTag: 82b36a4e-7084-415b-ab7e-eb77dd9c4c54
+		summarizeBy: none
+		sourceColumn: initial_list_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column application_type
+		dataType: string
+		lineageTag: 4ffa6a13-11fe-4d53-9898-668c6d449a11
+		summarizeBy: none
+		sourceColumn: application_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column AttributesKey
+		dataType: int64
+		formatString: 0
+		lineageTag: d6f13696-1a83-474d-ae60-eac23af97768
+		summarizeBy: none
+		sourceColumn: AttributesKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_LoanAttributes = m
+		mode: import
+		source =
+				let
+				    Source = Staging_Loans,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"verification_status", "initial_list_status", "application_type"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "AttributesKey"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

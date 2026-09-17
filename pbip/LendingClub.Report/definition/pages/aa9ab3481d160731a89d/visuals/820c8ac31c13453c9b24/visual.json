@@ -1,0 +1,89 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "820c8ac31c13453c9b24",
+  "position": {
+    "x": 255.80547112462008,
+    "y": 16.534954407294833,
+    "z": 5000,
+    "height": 73.9209726443769,
+    "width": 993.06990881458967,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Top candidates by Estimated Excess Loss: ",
+                    "textStyle": {
+                      "color": "#ffffff"
+                    }
+                  },
+                  {
+                    "value": "small_business",
+                    "textStyle": {
+                      "color": "#3f72f3"
+                    }
+                  },
+                  {
+                    "value": " and ",
+                    "textStyle": {
+                      "color": "#ffffff"
+                    }
+                  },
+                  {
+                    "value": "major_purchase ",
+                    "textStyle": {
+                      "color": "#00f2ff"
+                    }
+                  },
+                  {
+                    "value": "show a positive mispricing gap consistently across Grades A–D (up to +6.5pp), with meaningful dollar exposure behind it. debt_consolidation carries the largest absolute exposure on the book but a gap under 1pp in every grade. This can be argued to be due to volume, rather than mispricing.",
+                    "textStyle": {
+                      "color": "#ffffff"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top candidates by Estimated Excess Loss: small_business and major_purchase show a positive mispricing gap consistently across Grades A–D (up to +6.5pp), with meaningful dollar exposure behind it. debt_consolidation carries the largest absolute exposure on the book but a gap under 1pp in every grade — a volume story, not a mispricing one, kept separate here so the two aren''t conflated.'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

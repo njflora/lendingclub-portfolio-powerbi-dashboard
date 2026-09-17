@@ -1,0 +1,28 @@
+relationship AutoDetected_d684ae9a-b124-45e7-88cf-c75a1b79996a
+	fromColumn: Fact_Loan.GradeKey
+	toColumn: Dim_Grade.GradeKey
+
+relationship AutoDetected_45867c95-077f-4e17-b722-c7a9d2100c8d
+	fromColumn: Fact_Loan.PurposeKey
+	toColumn: Dim_Purpose.PurposeKey
+
+relationship AutoDetected_b3b60fbf-c4c0-44ea-bad8-a71a394041aa
+	fromColumn: Fact_Loan.StateKey
+	toColumn: Dim_Geography.StateKey
+
+relationship AutoDetected_a748aac0-0355-478d-b5ba-028388699d2b
+	fromColumn: Fact_Loan.EmpLengthKey
+	toColumn: Dim_EmpLength.EmpLengthKey
+
+relationship AutoDetected_d9b871f1-96f2-4f60-b40a-435e6295b712
+	fromColumn: Fact_Loan.LoanStatusKey
+	toColumn: Dim_LoanStatus.LoanStatusKey
+
+relationship AutoDetected_e9f35f1e-036f-4711-ac98-42ec859d93a3
+	fromColumn: Fact_Loan.AttributesKey
+	toColumn: Dim_LoanAttributes.AttributesKey
+
+relationship fac51620-6b31-82c1-686d-238e91d5aed3
+	fromColumn: Fact_Loan.issue_d
+	toColumn: Dim_Date.Date
+

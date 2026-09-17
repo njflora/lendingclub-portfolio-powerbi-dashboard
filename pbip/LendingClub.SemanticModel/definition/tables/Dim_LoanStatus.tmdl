@@ -1,0 +1,64 @@
+table Dim_LoanStatus
+	lineageTag: 5c0bcdc0-fd8e-43c0-8a93-87d04b9abd3e
+
+	column loan_status
+		dataType: string
+		lineageTag: 6f0bfddb-4657-4803-8b45-d086cb300d7b
+		summarizeBy: none
+		sourceColumn: loan_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column RiskFlag
+		dataType: string
+		lineageTag: d6b5a4b9-39e6-4599-9a97-e4e7c2d819af
+		summarizeBy: none
+		sourceColumn: RiskFlag
+
+		annotation SummarizationSetBy = Automatic
+
+	column MeetsCreditPolicy
+		dataType: string
+		lineageTag: 25d25ae9-b04e-4ba1-829e-7b0bf2785d44
+		summarizeBy: none
+		sourceColumn: MeetsCreditPolicy
+
+		annotation SummarizationSetBy = Automatic
+
+	column LoanStatusKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 9bb0125c-74c8-4945-85bf-80eb842b92b0
+		summarizeBy: none
+		sourceColumn: LoanStatusKey
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_LoanStatus = m
+		mode: import
+		source =
+				let
+				    Source = Staging_Loans,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"loan_status"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "RiskFlag", each if [loan_status] = "Fully Paid" then "Resolved-Good"
+				    else if [loan_status] = "Does not meet the credit policy. Status:Fully Paid" then "Resolved-Good"
+				    else if [loan_status] = "Charged Off" then "Resolved-Bad"
+				    else if [loan_status] = "Default" then "Resolved-Bad"
+				    else if [loan_status] = "Does not meet the credit policy. Status:Charged Off" then "Resolved-Bad"
+				    else if [loan_status] = "Current" then "Open-Performing"
+				    else if [loan_status] = "In Grace Period" then "Open-Delinquent-Early"
+				    else if [loan_status] = "Late (16-30 days)" then "Open-Delinquent-Early"
+				    else if [loan_status] = "Late (31-120 days)" then "Open-Delinquent-Late"
+				    else "Unclassified"),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "MeetsCreditPolicy", each if Text.StartsWith([loan_status], "Does not meet the credit policy") then "No" else "Yes"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"RiskFlag", type text}, {"MeetsCreditPolicy", type text}}),
+				    #"Added Index" = Table.AddIndexColumn(#"Changed Type", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "LoanStatusKey"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

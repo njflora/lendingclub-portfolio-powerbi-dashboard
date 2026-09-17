@@ -1,0 +1,54 @@
+table Dim_Geography
+	lineageTag: dddee74c-86f8-4a34-8de4-20b113c961b6
+
+	column addr_state
+		dataType: string
+		lineageTag: 761b83c3-20d7-4159-b4a8-13b0f6d48537
+		summarizeBy: none
+		sourceColumn: addr_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: e04f6372-7554-4c5b-8e6a-b9ea57abcd37
+		summarizeBy: none
+		sourceColumn: StateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateName
+		dataType: string
+		lineageTag: 94b5eb0b-e09c-4699-a60d-90546aaabc55
+		summarizeBy: none
+		sourceColumn: StateName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: b743b9bf-9269-488a-89ca-cfa01c498865
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Geography = m
+		mode: import
+		source =
+				let
+				    Source = Staging_Loans,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"addr_state"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Duplicates", {"addr_state"}, Ref_StateRegion, {"StateCode"}, "Ref_StateRegion", JoinKind.LeftOuter),
+				    #"Expanded Ref_StateRegion" = Table.ExpandTableColumn(#"Merged Queries", "Ref_StateRegion", {"StateName", "Region"}, {"StateName", "Region"}),
+				    #"Added Index" = Table.AddIndexColumn(#"Expanded Ref_StateRegion", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "StateKey"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

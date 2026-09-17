@@ -1,0 +1,49 @@
+table SegmentBy
+	lineageTag: 7789a7e0-5809-4314-b411-232d6fb377c1
+
+	column SegmentBy
+		lineageTag: 11553ec6-f22c-46e6-b986-1649adcdf3bd
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'SegmentBy Order'
+
+		relatedColumnDetails
+			groupByColumn: 'SegmentBy Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SegmentBy Fields'
+		isHidden
+		lineageTag: aa208460-1fce-45cb-af0c-e3182189fd21
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'SegmentBy Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'SegmentBy Order'
+		isHidden
+		formatString: 0
+		lineageTag: dffd6b0d-a07b-4db8-b579-79cd786840d3
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition SegmentBy = calculated
+		mode: import
+		source =
+				{
+				    ("purpose", NAMEOF('Dim_Purpose'[purpose]), 0),
+				    ("addr_state", NAMEOF('Dim_Geography'[addr_state]), 1),
+				    ("term", NAMEOF('Fact_Loan'[term]), 2)
+				}
+
+	annotation PBI_Id = 62701c25f97d4bff8e412e4c01c3e2b6
+

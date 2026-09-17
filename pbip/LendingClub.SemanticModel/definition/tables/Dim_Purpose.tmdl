@@ -1,0 +1,45 @@
+table Dim_Purpose
+	lineageTag: 98f574bf-9040-43cc-96db-af8f84830852
+
+	column purpose
+		dataType: string
+		lineageTag: 378313bc-44ec-44ea-9ff6-e4e09b62a26b
+		summarizeBy: none
+		sourceColumn: purpose
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurposeKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 144d3dde-9b51-4bbc-aa9b-dd93fe0dee9b
+		summarizeBy: none
+		sourceColumn: PurposeKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column PurposeGroup
+		dataType: string
+		lineageTag: 0d706eac-51c7-4950-8e12-d69df7e0b8c7
+		summarizeBy: none
+		sourceColumn: PurposeGroup
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Purpose = m
+		mode: import
+		source =
+				let
+				    Source = Staging_Loans,
+				    #"Removed Other Columns" = Table.SelectColumns(Source,{"purpose"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Other Columns"),
+				    #"Added Index" = Table.AddIndexColumn(#"Removed Duplicates", "Index", 1, 1, Int64.Type),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Index",{{"Index", "PurposeKey"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "PurposeGroup", each if List.Contains({"debt_consolidation", "credit_card", "home_improvement", "other"}, [purpose]) then [purpose] else "Small purposes (combined)")
+				in
+				    #"Added Custom"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

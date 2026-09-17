@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "20645c3e6747067dea01",
+  "position": {
+    "x": 12.644376899696049,
+    "y": 152.70516717325228,
+    "z": 2002,
+    "height": 332.64437689969606,
+    "width": 374.468085106383,
+    "tabOrder": 2002
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Caveats:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14pt",
+                      "color": "#e6e6e6"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "This analysis reflects one historical lending cycle (2007–2018), with no macroeconomic or credit-cycle control beyond the sensitivity check below. Loan seasoning is approximated from last-payment date, not a true monthly performance panel — see Page 3 methodology. Grade reflects LendingClub's own underwriting model, not an independent risk benchmark, so \"mispriced relative to grade\" is not the same as \"mispriced relative to true risk.\" Yield and loss figures use straight-line annualization and treat interest as fully collected at the nominal rate. See README for full methodology.",
+                    "textStyle": {
+                      "fontSize": "12pt",
+                      "color": "#e6e6e6"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

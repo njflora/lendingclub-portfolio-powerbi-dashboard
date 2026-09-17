@@ -1,0 +1,51 @@
+table Dim_Date
+	lineageTag: 18075f27-8701-4a85-8cf1-e786e9a534e6
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: Short Date
+		lineageTag: aa07ab09-3f32-401c-8839-6459e95dc2d0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = YEAR(Dim_Date[Date])
+		formatString: 0
+		lineageTag: 3af88127-1eb9-4a3a-ac12-377a352d1f25
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = MONTH(Dim_Date[Date])
+		formatString: 0
+		lineageTag: 2503c644-4a2d-4c0e-a711-cc28ba6c156f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName = FORMAT(Dim_Date[Date], "MMM YYYY")
+		lineageTag: 7057137c-6ec3-449d-b601-80845081d91a
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter = "Q" & FORMAT(Dim_Date[Date], "Q") & " " & YEAR(Dim_Date[Date])
+		lineageTag: 30c3d059-fc22-4ca1-9635-2ecf38fe2a73
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dim_Date = calculated
+		mode: import
+		source =
+				
+				CALENDAR(
+				    DATE(2007, 6, 1),
+				    DATE(2018, 12, 1)
+				)
+
+	annotation PBI_Id = 69c9ba94356f4102bd692d163c7dd611
+

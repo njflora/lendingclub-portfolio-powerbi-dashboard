@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "4266680c25c77b01553e",
+  "position": {
+    "x": 579.69604863221889,
+    "y": 8.7537993920972657,
+    "z": 1000,
+    "height": 126.44376899696049,
+    "width": 665.28875379939211,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Segment Mispricing Gap"
+                }
+              },
+              "queryRef": "_Measures.Segment Mispricing Gap",
+              "nativeQueryRef": "Segment Mispricing Gap"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Segment Exposure"
+                }
+              },
+              "queryRef": "_Measures.Segment Exposure",
+              "nativeQueryRef": "Segment Exposure"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Vintage Drift 2011→2016"
+                }
+              },
+              "queryRef": "_Measures.Vintage Drift 2011→2016",
+              "nativeQueryRef": "Vintage Drift 2011→2016"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Segment Mispricing Gap"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "35afc58504c48d167c91",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Segment Mispricing Gap"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b7a49e8fb20315a7c607",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Segment Exposure"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d1d212e2482851c80069",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Vintage Drift 2011→2016"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+table 'Charge-off Stress %'
+	lineageTag: 64a0d162-658e-4a7d-ba39-f9d865bda9c5
+
+	measure 'Charge-off Stress % Value' = SELECTEDVALUE('Charge-off Stress %'[Charge-off Stress %], 0)
+		formatString: 0
+		lineageTag: e7fcdd4f-8a39-4603-bbb7-2404022e067b
+
+	column 'Charge-off Stress %'
+		formatString: 0
+		lineageTag: a51aeee9-d380-4315-b89b-384f05c89a52
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 0
+				}
+
+		annotation SummarizationSetBy = User
+
+	partition 'Charge-off Stress %' = calculated
+		mode: import
+		source = GENERATESERIES(0, 50, 5)
+
+	annotation PBI_Id = edbbc606711049ae9d7dcc24c3087451
+
