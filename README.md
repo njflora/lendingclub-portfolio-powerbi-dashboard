@@ -86,11 +86,11 @@ Incremental refresh doesn't functionally apply here — this is a static, one-ti
 ## Page-by-page walkthrough
 
 <img width="1311" height="736" alt="01_portfolio_overview" src="https://github.com/user-attachments/assets/026a473c-1b40-41de-bbfe-0785d64e19e7" />
-### Page 1 — Portfolio Overview
+Page 1 — Portfolio Overview
 2M total loans (2,260,668), a 13.38% dollar-weighted average interest rate, a 19.98% count-based charge-off rate among resolved loans, and — headline-visible rather than a footnote — **40.37% of the book is still open** with no known outcome yet. Grade mix (B and C dominate by count, tapering sharply through F/G), purpose mix (debt_consolidation and credit_card dominate volume), and a total-exposure-by-origination-date trend from 2007 through 2018 round out the page. This page exists to display the numbers.
 
 <img width="1307" height="738" alt="02_segment_mispricing" src="https://github.com/user-attachments/assets/12ffe847-9259-44de-9667-f03a624be542" />
-### Page 2 — Segment Mispricing
+Page 2 — Segment Mispricing
 The analytical core, named specifically rather than a generic "Risk Segmentation" label so the argument is immediately known. Rather than inventing an external pricing model, **use LendingClub's own grade system as the benchmark**. Grade is supposed to already price for risk — that's its entire purpose — so "mispriced" means *within a grade* (which should be risk-homogeneous), does a given purpose have realized loss meaningfully worse than its grade peers, despite being priced at roughly the same rate as the rest of that grade.
 
 ```dax
@@ -103,7 +103,7 @@ Mispricing Gap = [Net Loss Rate] - [Grade Avg Net Loss Rate]
 A grade × purpose matrix shows every combination's gap at once (colored red for worse-than-peers, green for better); a scatter plots exposure against mispricing gap, colored by grade on a deliberate teal-to-red ordinal ramp so "big and mispriced" segments visually separate from small, noisy ones instead of blending into a single default-palette color; and a `% Book Open` indicator sits next to every number on the page, so nothing here gets read as more mature than it is. The finding that falls out of it: **`small_business` and `major_purchase` show a positive mispricing gap consistently across Grades A–D (up to +6.5pp), with meaningful dollar exposure behind it. `debt_consolidation` carries the largest absolute exposure on the book but a gap under 1pp in every grade — a volume story, not a mispricing one**, and the two are kept visually separate on this page so they don't get conflated.
 
 <img width="1306" height="734" alt="03_vintage_cohort_monitoring" src="https://github.com/user-attachments/assets/e09d4661-0d89-4454-a8af-4cf7cffb9b92" />
-### Page 3 — Vintage Cohort Monitoring
+Page 3 — Vintage Cohort Monitoring
 The public LendingClub file is a loan-level snapshot, not a monthly performance panel. A true delinquency-emergence curve would need a loan-month tape (was this loan 30dpd in month 6, 90dpd in month 12); this dataset only has an issue date and a final/current status. The defensible approximation built instead: `Months on Book = DATEDIFF(issue_d, last_pymnt_d, MONTH)`, used as a proxy for how long a loan seasoned before its outcome.
 
 The page overlays a cumulative-bad-rate-by-MOB curve for every issuance year (2007 highlighted red as the worst vintage, 2009 highlighted teal as the best, the rest muted grey so the two extremes read immediately against a 12-line legend that would otherwise be unreadable), and a vintage maturity table — **filtered to mature cohorts only** — so a genuinely worsening trend isn't confused with a young cohort that simply hasn't had time to go bad yet:
@@ -134,7 +134,7 @@ A calculated column anchored to `MAX(last_credit_pull_d)` — the most recent da
 A bookmark-driven toggle switches the trend chart between "All Cohorts" and "Mature Only," so a reviewer can see the right-censoring problem directly rather than take the maturity filter on faith.
 
 <img width="1307" height="732" alt="04_recommendation" src="https://github.com/user-attachments/assets/dd81dce6-98cb-482f-8821-6ebb2a7f63cd" />
-### Page 4 — Recommendation
+Page 4 — Recommendation
 A one-sentence headline banner states the action and the segment it targets. Three cards back the recommendation: the 3.06% mispricing gap, the $1.04bn exposure it sits on, and the 2.10pp vintage drift confirming it isn't static. A quantified-impact block shows the $32.00M estimated excess loss (the number reserved in the violet accent color, since it's arguably the single most important figure on the page), alongside a 14-row supporting breakdown table (grade × purpose, gap % and dollar contribution per row, so a reviewer can see exactly how the headline number was built rather than trusting a black-box total) and the 9.41 bps portfolio-yield uplift. A caveats panel states plainly what this analysis can't claim (expanded on below). A next-step panel recommends trying a reprice on new originations for two quarters, monitoring the vintage curve, before any portfolio-wide rollout. The charge-off-stress-% slider drives a live sensitivity check: at a 20% stress, the estimated excess loss falls to **$1.38M** — a ~96% reduction from the $32.00M base case — with a dynamic text measure adjusting the result as the slider moves.
 
 ---
