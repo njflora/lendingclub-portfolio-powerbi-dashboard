@@ -15,6 +15,7 @@ The notebook as committed already has every cell's real output baked in, so it c
 ## Screenshots
 
 1. Mispricing Scatter
-<img width="1350" height="900" alt="mispricing_scatter" src="https://github.com/user-attachments/assets/5f23f081-a48b-4547-892b-3296b72a1a80" />
+<img width="1350" height="900" alt="mispricing_scatter" src="https://github.com/user-attachments/assets/07123994-2284-4d7d-8755-3127edd1a2fd" />
 2. Vintage Cohort Curves
-<img width="1350" height="825" alt="vintage_cohort_curves" src="https://github.com/user-attachments/assets/b471ef82-6bb4-44be-a5ce-2a97a37c093f" />
+<img width="1350" height="825" alt="vintage_cohort_curves" src="https://github.com/user-attachments/assets/dc7e51af-e33b-4496-8b0d-898e210b4a8c" />
+
