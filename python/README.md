@@ -11,3 +11,10 @@ This isn't a rebuild of the dashboard. It exists to demonstrate the analytical j
 3. Open `LendingClub_Python_Companion.ipynb` and run all cells top to bottom (the full pipeline runs in well under a minute).
 
 The notebook as committed already has every cell's real output baked in, so it can be read directly on GitHub without running anything.
+
+## Screenshots
+
+1. Mispricing Scatter
+<img width="1350" height="900" alt="mispricing_scatter" src="https://github.com/user-attachments/assets/5f23f081-a48b-4547-892b-3296b72a1a80" />
+2. Vintage Cohort Curves
+<img width="1350" height="825" alt="vintage_cohort_curves" src="https://github.com/user-attachments/assets/b471ef82-6bb4-44be-a5ce-2a97a37c093f" />
