@@ -1,35 +1,45 @@
-# DAX Measures Reference
+# DAX measures
 
-Every measure used across the four report pages, with the reasoning behind it. Grouped in build order (foundation → risk → pricing → mispricing → vintage → recommendation), matching the project's [README](./README.md) walkthrough, so a reviewer who won't open Power BI directly can still follow the analytical logic end to end.
+Every measure in the model, with a short note on why it's built the way it is. They're in the order the report uses them, so you can follow the logic without opening Power BI. The same code is in `pbip/LendingClub.SemanticModel/definition/tables/_Measures.tmdl`.
 
 ---
 
-## Foundation measures
+## Foundation
 
-**Weighted Avg Rate** — dollar-weighted, not a naive average of the `int_rate` column. A simple average of averages would let a handful of small, high-rate loans distort the portfolio-level figure just as much as a handful of large ones.
+**Weighted Avg Rate.** Weighted by funded amount, so a few small high-rate loans can't skew the portfolio figure. `int_rate` is stored as a whole number (13.38), hence the `/ 100`.
 
 ```dax
 Weighted Avg Rate =
 DIVIDE(
     SUMX(Fact_Loan, Fact_Loan[funded_amnt] * Fact_Loan[int_rate]),
     SUM(Fact_Loan[funded_amnt])
-)
+) / 100
 ```
 
-**Resolved Loan Count** / **Pct Book Open** — 40.37% of the live model is still open with no known outcome. Every risk measure below is deliberately scoped to resolved loans only, so a segment full of recently-issued loans doesn't look artificially safe just because it hasn't had time to default yet.
+**Total Loans, Total Exposure.**
+
+```dax
+Total Loans = COUNTROWS(Fact_Loan)
+Total Exposure = SUM(Fact_Loan[funded_amnt])
+```
+
+**Resolved Loan Count, Pct Book Open.** 40.37% of the book is still open. Every risk measure below only uses resolved loans, so new loans don't look safe just because they haven't had time to default.
 
 ```dax
 Resolved Loan Count =
-CALCULATE(COUNTROWS(Fact_Loan), Dim_LoanStatus[RiskFlag] IN {"Resolved-Good","Resolved-Bad"})
+CALCULATE(
+    COUNTROWS(Fact_Loan),
+    Dim_LoanStatus[RiskFlag] IN {"Resolved-Good", "Resolved-Bad"}
+)
 
 Pct Book Open = 1 - DIVIDE([Resolved Loan Count], COUNTROWS(Fact_Loan))
 ```
 
 ---
 
-## Risk measures
+## Risk
 
-**Charge-off Rate** — count-based, intuitive headline number, computed only over resolved loans.
+**Charge-off Rate.** The simple, count-based headline.
 
 ```dax
 Charge-off Rate =
@@ -39,91 +49,123 @@ DIVIDE(
 )
 ```
 
-**Net Loss Rate** — the more precise, dollar-weighted measure, and the one the rest of the model leads with. A LendingClub charge-off is rarely a 100% loss: principal and interest already received stay received, and there's a post-charge-off recovery process. Using realized loss-given-default dollars instead of a binary default flag is the difference between an actuarially-informed loss estimate and a naive count-based default rate.
+**Net Loss Rate.** The measure the rest of the model is built on. A charged-off loan is rarely a 100% loss: principal already repaid stays repaid, and some money comes back through recoveries. So the loss is funded amount minus principal repaid minus net recoveries, as a share of funded amount on resolved loans.
 
 ```dax
 Net Loss Rate =
-DIVIDE(
-    CALCULATE(
-        SUMX(Fact_Loan,
-            IF(Dim_LoanStatus[RiskFlag] = "Resolved-Bad",
-                Fact_Loan[funded_amnt] - Fact_Loan[total_rec_prncp] - (Fact_Loan[recoveries] - Fact_Loan[collection_recovery_fee]),
-                0)
-        ),
-        Dim_LoanStatus[RiskFlag] IN {"Resolved-Good","Resolved-Bad"}
-    ),
-    CALCULATE(SUM(Fact_Loan[funded_amnt]), Dim_LoanStatus[RiskFlag] IN {"Resolved-Good","Resolved-Bad"})
-)
+VAR ResolvedLoans =
+    CALCULATETABLE(
+        Fact_Loan,
+        Dim_LoanStatus[RiskFlag] IN {"Resolved-Good", "Resolved-Bad"}
+    )
+VAR TotalNetLoss =
+    SUMX(
+        ResolvedLoans,
+        IF(
+            RELATED(Dim_LoanStatus[RiskFlag]) = "Resolved-Bad",
+            Fact_Loan[funded_amnt] - Fact_Loan[total_rec_prncp]
+                - (Fact_Loan[recoveries] - Fact_Loan[collection_recovery_fee]),
+            0
+        )
+    )
+VAR TotalFunded = SUMX(ResolvedLoans, Fact_Loan[funded_amnt])
+RETURN
+    DIVIDE(TotalNetLoss, TotalFunded)
 ```
 
 ---
 
-## Pricing / yield measures
+## Yield
 
-**Risk-Adjusted Yield** — nominal rate earned minus realized loss rate, as a net spread. Deliberately simple: it ignores duration/time-value effects and treats interest as fully collected at the nominal rate even on loans that later went bad. A known, stated simplification, not a precise actuarial yield.
+**Annualized Net Loss Rate.** A 60-month loan builds up more loss than a 36-month one at the same risk, just by being around longer. Dividing by the average term in years puts them on the same footing. It's straight-line, which is a simplification.
 
 ```dax
-Risk-Adjusted Yield = [Weighted Avg Rate] - [Net Loss Rate]
+Annualized Net Loss Rate = DIVIDE([Net Loss Rate], AVERAGE(Fact_Loan[Term]) / 12)
 ```
 
-**Annualized Net Loss Rate** — needed to compare 36- and 60-month loans fairly, since a 60-month loan naturally accumulates more cumulative loss exposure over its life at the *same* underlying risk level, purely by being outstanding longer. A straight-line simplification; a true amortization-curve-based annualization is more correct but out of scope here.
+**Risk-Adjusted Yield.** Rate earned minus annualised loss. It ignores time value and assumes interest is collected in full; that's stated in the README's limitations.
 
 ```dax
-Annualized Net Loss Rate = DIVIDE([Net Loss Rate], Fact_Loan[Term] / 12)
+Risk-Adjusted Yield = [Weighted Avg Rate] - [Annualized Net Loss Rate]
 ```
 
 ---
 
-## The mispricing measure — the analytical core
+## Mispricing
 
-The key design decision: use LendingClub's own grade system as the pricing benchmark, rather than inventing an external one. Grade is supposed to already price for risk, so "mispriced" means *within a grade*, does a purpose/segment lose meaningfully more than its grade peers despite being priced about the same.
+The core idea: use LendingClub's own grade as the benchmark. Grade is meant to price risk already, so a purpose is "mispriced" if it loses more than the rest of its grade.
 
 ```dax
-Grade Avg Net Loss Rate =
-CALCULATE([Net Loss Rate], ALLEXCEPT(Fact_Loan, Dim_Grade))
+Grade Avg Net Loss Rate = CALCULATE([Net Loss Rate], REMOVEFILTERS(Dim_Purpose))
 
 Mispricing Gap = [Net Loss Rate] - [Grade Avg Net Loss Rate]
 ```
 
-`ALLEXCEPT(Fact_Loan, Dim_Grade)` removes every filter except grade, so in a matrix sliced by Grade × Purpose this measure always shows "what did this whole grade do" — letting each purpose's actual loss rate be compared against its own grade's average on the same visual. Note: this measure has no meaning outside grade context — dropped on a standalone card with no grade filter, it nets to (approximately) zero by construction, since positive and negative segment deviations cancel out across a grade's own average. It's designed for row/matrix context, not a KPI card.
+`REMOVEFILTERS(Dim_Purpose)` removes only the purpose filter, so in a grade × purpose matrix each cell is compared with its whole grade. Any other filter on the page (year, state, term) still applies to both sides, so the comparison stays like for like. An earlier version used `ALLEXCEPT(Fact_Loan, Dim_Grade)`, which also stripped those other filters from the benchmark.
+
+The gap only means something per grade. On a card with no grade in context it comes out at zero, because the benchmark becomes the whole book.
 
 ---
 
-## Vintage cohort measures
+## Vintage cohorts (Page 3)
 
-**The limitation stated up front:** the public LendingClub file is a loan-level snapshot, not a monthly performance panel. `Months on Book` is a defensible approximation using last-payment date as a proxy for how long a loan seasoned before its outcome — not a substitute for a true loan-month performance tape.
-
-```dax
-Months on Book (MOB) = DATEDIFF(Fact_Loan[issue_d], Fact_Loan[last_pymnt_d], MONTH)
-```
-
-**Is Vintage Mature** — the single most important guard on this page. Comparing a fully-seasoned old cohort's ultimate default rate to a barely-seasoned recent cohort's rate and concluding recent originations are "safer" is the classic vintage-analysis mistake (right-censoring) — a young cohort simply hasn't had time to go bad yet.
+Two calculated columns on `Fact_Loan`. The public file has no monthly performance history, so seasoning is approximated from the last payment date.
 
 ```dax
+Months on Book = DATEDIFF(Fact_Loan[issue_d], Fact_Loan[last_pymnt_d], MONTH)
+
 Is Vintage Mature =
-DATEDIFF(Dim_Date[MonthStart], TODAY(), MONTH) >= SELECTEDVALUE(Fact_Loan[Term])
+DATEDIFF(Fact_Loan[issue_d], MAX(Fact_Loan[last_credit_pull_d]), MONTH) >= Fact_Loan[term]
 ```
 
-**Best/Worst Mature Vintage** — finds the min/max charge-off rate among mature cohorts only, and the year it occurred in.
+A loan is mature once its full term has passed, measured against the latest date in the data rather than `TODAY()`. Otherwise, years after the extract, almost everything would count as mature.
+
+**Cumulative Bad Rate by MOB.** Drives the vintage curves: for each months-on-book value, the share of the cohort that had gone bad by then.
 
 ```dax
-Worst Mature Vintage =
-VAR WorstRate =
-    MAXX(VALUES(Dim_Date[Year]), CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE))
-VAR WorstYear =
-    CALCULATE(MIN(Dim_Date[Year]), FILTER(VALUES(Dim_Date[Year]), CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE) = WorstRate))
-RETURN WorstYear & "  ·  " & FORMAT(WorstRate, "0.00%")
+Cumulative Bad Rate by MOB =
+VAR CurrentMOB =
+    CALCULATE(MAX(Fact_Loan[Months on Book]), ALL(Dim_Date[Year]))
+VAR VintageTotal =
+    CALCULATE(COUNTROWS(Fact_Loan), ALL(Fact_Loan[Months on Book]))
+VAR BadByThisMOB =
+    CALCULATE(
+        COUNTROWS(Fact_Loan),
+        FILTER(ALL(Fact_Loan[Months on Book]), Fact_Loan[Months on Book] <= CurrentMOB),
+        Dim_LoanStatus[RiskFlag] = "Resolved-Bad"
+    )
+RETURN DIVIDE(BadByThisMOB, VintageTotal)
 ```
 
-*(`Best Mature Vintage` is the same pattern with `MINX`.)*
-
-**Mature Loan Count** — 820K loans qualify.
+**Mature Loan Count.** 820K loans.
 
 ```dax
 Mature Loan Count = CALCULATE(COUNTROWS(Fact_Loan), Fact_Loan[Is Vintage Mature] = TRUE)
 ```
 
-**Vintage Drift 2011→2016** — the headline year-over-year deterioration figure carried through to the recommendation page, both endpoints restricted to mature cohorts so the comparison is apples-to-apples.
+**Best and Worst Mature Vintage.** The year with the lowest or highest charge-off rate among mature cohorts (2009 at 13.69%, 2007 at 26.20%).
+
+```dax
+Worst Mature Vintage =
+VAR WorstRate =
+    MAXX(
+        VALUES(Dim_Date[Year]),
+        CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE)
+    )
+VAR WorstYear =
+    CALCULATE(
+        MIN(Dim_Date[Year]),
+        FILTER(
+            VALUES(Dim_Date[Year]),
+            CALCULATE([Charge-off Rate], Fact_Loan[Is Vintage Mature] = TRUE) = WorstRate
+        )
+    )
+RETURN WorstYear & "  ·  " & FORMAT(WorstRate, "0.00%")
+```
+
+`Best Mature Vintage` is the same pattern with `MINX`.
+
+**Vintage Drift 2011→2016.** Both years are fully mature, so it's a fair comparison: +2.10 percentage points.
 
 ```dax
 Vintage Drift 2011→2016 =
@@ -133,9 +175,11 @@ CALCULATE([Charge-off Rate], Dim_Date[Year] = 2016, Fact_Loan[Is Vintage Mature]
 
 ---
 
-## Recommendation-page measures
+## Recommendation (Page 4)
 
-**Estimated Excess Loss** — dollars of net loss avoided had `small_business` and `major_purchase` performed at their own grade's average, summed across every grade × purpose combination within those two purposes. Confirmed **$32.00M**, cross-validated by manually summing the 14-row supporting breakdown table to the cent.
+The recommendation covers `small_business` and `major_purchase` in grades A–E (the README explains why F and G are left out). The grade and purpose filters live inside the measures, so they can't be lost if someone clears a visual filter.
+
+**Estimated Excess Loss: $31.31M.** For each grade × purpose cell, the gap times that cell's exposure, then summed. It has to be worked out cell by cell; one blended gap times total exposure comes out at roughly zero, because gaps above and below the grade average cancel out.
 
 ```dax
 Estimated Excess Loss =
@@ -144,26 +188,25 @@ CALCULATE(
         SUMMARIZE(Fact_Loan, Dim_Grade[grade], Dim_Purpose[purpose]),
         [Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
     ),
-    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+    Dim_Purpose[purpose] IN {"small_business", "major_purchase"},
+    Dim_Grade[grade] IN {"A", "B", "C", "D", "E"}
 )
 ```
 
-*(An earlier draft, `[Mispricing Gap] * [Total Exposure]` with no grade/purpose breakdown, returned ~0% — a real, instructive dead end: grade-average deviations cancel out by construction across the whole unfiltered book, so the measure has to be evaluated at grade × purpose granularity and then summed, not applied as a single blended multiplication.)*
-
-**Segment Mispricing Gap** / **Segment Exposure** — the two proof-point numbers behind the headline: 3.06% and $1.04bn respectively.
+**Segment Exposure ($985.27M) and Segment Mispricing Gap (3.18%).**
 
 ```dax
-Segment Mispricing Gap =
-DIVIDE(
-    [Estimated Excess Loss],
-    CALCULATE(SUM(Fact_Loan[funded_amnt]), Dim_Purpose[purpose] IN {"small_business", "major_purchase"})
+Segment Exposure =
+CALCULATE(
+    SUM(Fact_Loan[funded_amnt]),
+    Dim_Purpose[purpose] IN {"small_business", "major_purchase"},
+    Dim_Grade[grade] IN {"A", "B", "C", "D", "E"}
 )
 
-Segment Exposure =
-CALCULATE(SUM(Fact_Loan[funded_amnt]), Dim_Purpose[purpose] IN {"small_business", "major_purchase"})
+Segment Mispricing Gap = DIVIDE([Estimated Excess Loss], [Segment Exposure])
 ```
 
-**Excess Loss Uplift (bps)** — the $32.00M reframed as a portfolio-level yield impact: 9.41 bps.
+**Excess Loss Uplift (bps): 9.21.** The estimate as a share of the whole book.
 
 ```dax
 Excess Loss Uplift (bps) =
@@ -173,15 +216,15 @@ DIVIDE(
 ) * 10000
 ```
 
-**Excess Loss Contribution** — the row-level column behind the supporting breakdown table (14 rows: 7 grades × 2 purposes). Deliberately has no purpose filter baked in — it's designed to be read inside a Grade × Purpose table with a visual-level filter applied, not used standalone (dropped on its own card with no row context, it shows 0.00 for the same cancellation reason as `Grade Avg Net Loss Rate` above).
+**Excess Loss Contribution.** The row-level figure in the breakdown table (10 rows). It has no filters of its own, because the table supplies them.
 
 ```dax
 Excess Loss Contribution = [Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
 ```
 
-### Sensitivity check
+### Benchmark sensitivity
 
-A What-if parameter (`Charge-off Stress %`, numeric range 0–50%, step 5%) drives a live "what if loss rates rise" stress test.
+A What-if parameter (0–50%, steps of 5) raises the grade-peer benchmark and recalculates the estimate. It answers "how much worse would the peers have to be before this gap disappears?" At 20%, the estimate falls to $4.89M.
 
 ```dax
 Stressed Grade Avg Net Loss Rate =
@@ -195,17 +238,17 @@ CALCULATE(
         SUMMARIZE(Fact_Loan, Dim_Grade[grade], Dim_Purpose[purpose]),
         [Stressed Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
     ),
-    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+    Dim_Purpose[purpose] IN {"small_business", "major_purchase"},
+    Dim_Grade[grade] IN {"A", "B", "C", "D", "E"}
 )
 ```
 
-At a 20% stress, `Stressed Excess Loss` falls to **$1.38M** — roughly a 96% reduction from the $32.00M base case. That's a large swing, but a mathematically sound one: `Grade Avg Net Loss Rate` is a comparatively large absolute base rate, and `Mispricing Gap` is a much thinner percentage-point differential sitting on top of it, so even a "mild" relative stress on the base rate can swamp most of the differential. See the README's Limitations section for why this was kept as-is rather than dampened with a gentler stress mechanic.
-
-**Sensitivity Narrative** — a dynamic text measure, displayed in a Card visual (a native Text Box can't bind to a measure), narrating the stressed result as the slider moves.
+**Sensitivity Narrative.** Shown in a card, since a text box can't display a measure.
 
 ```dax
 Sensitivity Narrative =
-"At a " & FORMAT(SELECTEDVALUE('Charge-off Stress %'[Charge-off Stress %], 0), "0") &
-"% stress, estimated excess loss falls to $" & FORMAT(DIVIDE([Stressed Excess Loss], 1000000), "0.00") &
-"M (base case: $32.00M) — this estimate is highly sensitive to loss-rate assumptions; treat it as directional support for a cautious pilot, not a guaranteed figure."
+"If grade peers' losses were " & FORMAT(SELECTEDVALUE('Charge-off Stress %'[Charge-off Stress %], 0), "0")
+& "% higher, the estimated excess loss would fall to $" & FORMAT(DIVIDE([Stressed Excess Loss], 1000000), "0.00")
+& "M (base case: $" & FORMAT(DIVIDE([Estimated Excess Loss], 1000000), "0.00")
+& "M). The finding is sensitive to the benchmark; treat it as directional support for a cautious pilot, not a guaranteed figure."
 ```
