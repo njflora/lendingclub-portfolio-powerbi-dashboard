@@ -210,6 +210,27 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Total Loans"
+          }
         }
       ],
       "referenceLabelLayout": [
@@ -246,5 +267,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "aa5679505d500eb5059b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Total Loans"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3d52577747340134b874",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weighted Avg Rate"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d8646015a87bba3b649d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Pct Book Open"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c7164de06e705ea9b563",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Charge-off Rate"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

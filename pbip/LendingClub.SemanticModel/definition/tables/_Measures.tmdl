@@ -62,9 +62,7 @@ table _Measures
 		formatString: 0.0000
 		lineageTag: 23d4e751-00bc-497e-90b2-096638be8bf3
 
-	measure 'Grade Avg Net Loss Rate' =
-			
-			CALCULATE([Net Loss Rate], ALLEXCEPT(Fact_Loan, Dim_Grade))
+	measure 'Grade Avg Net Loss Rate' = CALCULATE([Net Loss Rate], REMOVEFILTERS(Dim_Purpose))
 		formatString: 0.0000
 		lineageTag: 01982086-20c8-4d10-bc82-119bc2a28a50
 
@@ -83,7 +81,8 @@ table _Measures
 			        SUMMARIZE(Fact_Loan, Dim_Grade[grade], Dim_Purpose[purpose]),
 			        [Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
 			    ),
-			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"},
+			    Dim_Grade[grade] IN {"A", "B", "C", "D", "E"}
 			)
 		lineageTag: 0275f9fe-ee86-43ec-8d6b-ac31469c1e8d
 
@@ -197,15 +196,7 @@ table _Measures
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Segment Mispricing Gap' =
-			
-			DIVIDE(
-			    [Estimated Excess Loss],
-			    CALCULATE(
-			        SUM(Fact_Loan[funded_amnt]),
-			        Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
-			    )
-			)
+	measure 'Segment Mispricing Gap' = DIVIDE([Estimated Excess Loss], [Segment Exposure])
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: d0910ae0-306d-4278-8517-2bc6bcb904da
 
@@ -213,7 +204,8 @@ table _Measures
 			
 			CALCULATE(
 			    SUM(Fact_Loan[funded_amnt]),
-			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"},
+			    Dim_Grade[grade] IN {"A", "B", "C", "D", "E"}
 			)
 		lineageTag: 7e477699-b032-401d-8bf1-fced6c2bb13e
 
@@ -243,7 +235,8 @@ table _Measures
 			        SUMMARIZE(Fact_Loan, Dim_Grade[grade], Dim_Purpose[purpose]),
 			        [Stressed Mispricing Gap] * CALCULATE(SUM(Fact_Loan[funded_amnt]))
 			    ),
-			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"}
+			    Dim_Purpose[purpose] IN {"small_business", "major_purchase"},
+			    Dim_Grade[grade] IN {"A", "B", "C", "D", "E"}
 			)
 		lineageTag: 65ce9835-debb-4f97-921d-45a6c5524351
 
@@ -251,7 +244,10 @@ table _Measures
 
 	measure 'Sensitivity Narrative' =
 			
-			"At a " & FORMAT(SELECTEDVALUE('Charge-off Stress %'[Charge-off Stress %], 0), "0") & "% stress, estimated excess loss falls to $" & FORMAT(DIVIDE([Stressed Excess Loss], 1000000), "0.00") & "M (base case: $32.00M) — this estimate is highly sensitive to loss-rate assumptions; treat it as directional support for a cautious pilot, not a guaranteed figure."
+			"If grade peers' losses were " & FORMAT(SELECTEDVALUE('Charge-off Stress %'[Charge-off Stress %], 0), "0")
+			& "% higher, the estimated excess loss would fall to $" & FORMAT(DIVIDE([Stressed Excess Loss], 1000000), "0.00")
+			& "M (base case: $" & FORMAT(DIVIDE([Estimated Excess Loss], 1000000), "0.00")
+			& "M). The finding is sensitive to the benchmark; treat it as directional support for a cautious pilot, not a guaranteed figure."
 		lineageTag: 853ac276-e0bd-46e2-86d8-6ba9871f7e16
 
 	column Column1

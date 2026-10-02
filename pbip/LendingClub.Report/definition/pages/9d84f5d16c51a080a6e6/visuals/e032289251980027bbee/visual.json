@@ -5,8 +5,8 @@
     "x": 12.644376899696049,
     "y": 8.7537993920972657,
     "z": 0,
-    "height": 126.44376899696049,
-    "width": 523.28267477203644,
+    "height": 135.19756838905775,
+    "width": 557.32522796352589,
     "tabOrder": 0
   },
   "visual": {
@@ -38,10 +38,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Reprice small_business and major_purchase loans (grades A–D). Grades A-D are targeted as F and G perform slightly better than their grade peers for the filtered purposes.",
+                    "value": "Reprice small_business and major_purchase loans (grades A–E). Grades F and G are excluded: their volume is thin (about 6% of the segment's exposure) and their results are mixed, so they add noise rather than signal.",
                     "textStyle": {
                       "fontSize": "12pt",
-                      "color": "#e6e6e6"
+                      "color": "#ffffff"
                     }
                   }
                 ]

@@ -8167,10 +8167,1556 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "fact_loan.month_on_book": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact_Loan",
+			          "ConceptualProperty": "Months on Book"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "month on book": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "mth on book": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        }
+			      ]
+			    },
+			    "fact_loan.is_vintage_mature": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact_Loan",
+			          "ConceptualProperty": "Is Vintage Mature"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "is vintage mature": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.cumulative_bad_rate_by_MOB": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Cumulative Bad Rate by MOB"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "cumulative bad rate by MOB": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "cumulative bad degree by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "cumulative bad frequency by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "cumulative bad percentage by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "cumulative bad ratio by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "cumulative bad quotient by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "cumulative bad amount by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "cumulative bad proportion by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "cumulative bad speed by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "cumulative bad level by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "cumulative bad scale by mob": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.vintage_drift_20112016": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Vintage Drift 2011→2016"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "vintage drift 2011→2016": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.card_1": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Card 1"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "card 1": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity_1_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "1."
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "1.": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity_2_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "2."
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2.": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.entity_3_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "3."
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "3.": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.best_mature_vintage": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Best Mature Vintage"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "best mature vintage": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.worst_mature_vintage": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Worst Mature Vintage"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "worst mature vintage": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.mature_loan_count": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Mature Loan Count"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "mature loan count": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "loan count": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "mature loan amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "loan amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Measure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "measure": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "degree": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "quota": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "extent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "portion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "ration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "size": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.excess_loss_uplift_bps": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Excess Loss Uplift (bps)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "excess loss uplift (bps)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "excess loss uplift": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.segment_mispricing_gap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Segment Mispricing Gap"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "segment mispricing gap": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gap": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "division mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "subdivision mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "section mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "sector mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "bit mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "fragment mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "part mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "piece mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "portion mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "slice mispricing gap": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.segment_exposure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Segment Exposure"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "segment exposure": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "exposure": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "division exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "subdivision exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "section exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "sector exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "bit exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "fragment exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "part exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "piece exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "portion exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "slice exposure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.excess_loss_contribution": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Excess Loss Contribution"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "excess loss contribution": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "contribution": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "loss contribution": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "excess loss role": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "excess loss involvement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "loss role": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "loss involvement": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "excess loss influence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "excess loss input": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "excess loss say": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "excess loss impact": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "excess loss aid": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "excess loss support": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.stressed_grade_avg_net_loss_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Stressed Grade Avg Net Loss Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "stressed grade avg net loss rate": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.stressed_mispricing_gap": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Stressed Mispricing Gap"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "stressed mispricing gap": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "gap": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "stressed mispricing cavity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "stressed mispricing aperture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "stressed mispricing hole": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed mispricing opening": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed mispricing break": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed mispricing breach": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed mispricing slit": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed mispricing fissure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed mispricing crack": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "cavity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.stressed_excess_loss": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Stressed Excess Loss"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "stressed excess loss": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "loss": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "excess loss": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "stressed excess injury": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "stressed excess forfeiture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "excess injury": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "excess forfeiture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "stressed excess damage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed excess harm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed excess cost": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "stressed excess hurt": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "injury": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "forfeiture": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.sensitivity_narrative": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Sensitivity Narrative"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "sensitivity narrative": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "narrative": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "sensitivity tale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sensitivity description": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "sensitivity history": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "tale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "description": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "history": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "sensitivity story": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sensitivity account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "sensitivity chronicle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "story": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "chargeoff_stress_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Charge-off Stress %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "charge-off stress %": {
+			            "State": "Generated",
+			            "Weight": 0.87
+			          }
+			        },
+			        {
+			          "charge off stress %": {
+			            "State": "Generated",
+			            "Weight": 0.8439
+			          }
+			        },
+			        {
+			          "charge-off stress percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "charge off stress percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "charge-off stress pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "charge off stress pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "custody off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "responsibility off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "duty off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "care off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "control off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "trust off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        }
+			      ]
+			    },
+			    "chargeoff_stress_.chargeoff_stress_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Charge-off Stress %",
+			          "ConceptualProperty": "Charge-off Stress %"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "charge-off stress %": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "charge off stress %": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "charge-off stress percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "charge off stress percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "charge-off stress pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "charge off stress pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "custody off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "responsibility off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "duty off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "care off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "control off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "trust off stress %": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "Benchmark Stress %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "chargeoff_stress_.chargeoff_stress__value": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Charge-off Stress %",
+			          "ConceptualProperty": "Charge-off Stress % Value"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "charge-off stress % value": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "charge off stress % value": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "charge off stress percentage value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "charge off stress pct value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "custody off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "responsibility off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "duty off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "care off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "control off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "trust off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "burden off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "safekeeping off stress % value": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "fact_loan_has_dim_loan_status": {
+			    "fact_loan_has_is_vintage_mature": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_Loan"
 			      },
@@ -8181,9 +9727,9 @@ cultureInfo en-US
 			            "Entity": "fact_loan"
 			          }
 			        },
-			        "dim_loan_status": {
+			        "fact_loan.is_vintage_mature": {
 			          "Target": {
-			            "Entity": "dim_loan_status"
+			            "Entity": "fact_loan.is_vintage_mature"
 			          }
 			        }
 			      },
@@ -8194,29 +9740,16 @@ cultureInfo en-US
 			              "Role": "fact_loan"
 			            },
 			            "Object": {
-			              "Role": "dim_loan_status"
+			              "Role": "fact_loan.is_vintage_mature"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_loans_have_dim_loan_statuses"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_loan_status"
-			            },
-			            "Object": {
-			              "Role": "fact_loan"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_loan_statuses_have_fact_loans"
+			          "ID": "fact_loans_have_is_vintage_mature"
 			        }
 			      ]
 			    },
-			    "fact_loan_has_dim_emp_length": {
+			    "fact_loan_has_month_on_book": {
 			      "Binding": {
 			        "ConceptualEntity": "Fact_Loan"
 			      },
@@ -8227,9 +9760,9 @@ cultureInfo en-US
 			            "Entity": "fact_loan"
 			          }
 			        },
-			        "dim_emp_length": {
+			        "fact_loan.month_on_book": {
 			          "Target": {
-			            "Entity": "dim_emp_length"
+			            "Entity": "fact_loan.month_on_book"
 			          }
 			        }
 			      },
@@ -8240,163 +9773,12 @@ cultureInfo en-US
 			              "Role": "fact_loan"
 			            },
 			            "Object": {
-			              "Role": "dim_emp_length"
+			              "Role": "fact_loan.month_on_book"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_loans_have_dim_emp_lengths"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_emp_length"
-			            },
-			            "Object": {
-			              "Role": "fact_loan"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_emp_lengths_have_fact_loans"
-			        }
-			      ]
-			    },
-			    "fact_loan_has_dim_geography": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Loan"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_loan": {
-			          "Target": {
-			            "Entity": "fact_loan"
-			          }
-			        },
-			        "dim_geography": {
-			          "Target": {
-			            "Entity": "dim_geography"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_loan"
-			            },
-			            "Object": {
-			              "Role": "dim_geography"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_loans_have_dim_geographies"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_geography"
-			            },
-			            "Object": {
-			              "Role": "fact_loan"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_geographies_have_fact_loans"
-			        }
-			      ]
-			    },
-			    "fact_loan_has_dim_purpose": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Loan"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_loan": {
-			          "Target": {
-			            "Entity": "fact_loan"
-			          }
-			        },
-			        "dim_purpose": {
-			          "Target": {
-			            "Entity": "dim_purpose"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_loan"
-			            },
-			            "Object": {
-			              "Role": "dim_purpose"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_loans_have_dim_purposes"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_purpose"
-			            },
-			            "Object": {
-			              "Role": "fact_loan"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_purposes_have_fact_loans"
-			        }
-			      ]
-			    },
-			    "fact_loan_has_dim_grade": {
-			      "Binding": {
-			        "ConceptualEntity": "Fact_Loan"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_loan": {
-			          "Target": {
-			            "Entity": "fact_loan"
-			          }
-			        },
-			        "dim_grade": {
-			          "Target": {
-			            "Entity": "dim_grade"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_loan"
-			            },
-			            "Object": {
-			              "Role": "dim_grade"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_loans_have_dim_grades"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_grade"
-			            },
-			            "Object": {
-			              "Role": "fact_loan"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_grades_have_fact_loans"
+			          "ID": "fact_loans_have_month_on_book"
 			        }
 			      ]
 			    },
@@ -8545,6 +9927,39 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
+			    "dim_purpose_has_entity__measure_estimated_excess_loss": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Purpose"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_purpose": {
+			          "Target": {
+			            "Entity": "dim_purpose"
+			          }
+			        },
+			        "entity__measure.estimated_excess_loss": {
+			          "Target": {
+			            "Entity": "entity__measure.estimated_excess_loss"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_purpose"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.estimated_excess_loss"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_purposes_have_estimated_excess_loss"
+			        }
+			      ]
+			    },
 			    "dim_loan_status_has_entity__measure_estimated_excess_loss": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim_LoanStatus"
@@ -8575,6 +9990,39 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_loan_statuses_have_estimated_excess_loss"
+			        }
+			      ]
+			    },
+			    "dim_grade_has_entity__measure_estimated_excess_loss": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Grade"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_grade": {
+			          "Target": {
+			            "Entity": "dim_grade"
+			          }
+			        },
+			        "entity__measure.estimated_excess_loss": {
+			          "Target": {
+			            "Entity": "entity__measure.estimated_excess_loss"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_grade"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.estimated_excess_loss"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_grades_have_estimated_excess_loss"
 			        }
 			      ]
 			    },
@@ -10835,6 +12283,1644 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_geographies_are_in_addr_states"
+			        }
+			      ]
+			    },
+			    "fact_loan_is_is_vintage_mature": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "fact_loan.is_vintage_mature": {
+			          "Target": {
+			            "Entity": "fact_loan.is_vintage_mature"
+			          }
+			        }
+			      },
+			      "Conditions": [
+			        {
+			          "Target": {
+			            "Role": "fact_loan.is_vintage_mature"
+			          },
+			          "Operator": "Equals",
+			          "Value": {
+			            "Boolean": [
+			              true
+			            ]
+			          }
+			        }
+			      ],
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Adjectives": [
+			              {
+			                "is vintage mature": {
+			                  "State": "Generated"
+			                }
+			              },
+			              {
+			                "is-vintage-mature": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ]
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "some_fact_loans_are_is_vintage_mature_fact_loans"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_cumulative_bad_rate_by_MOB": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.cumulative_bad_rate_by_MOB": {
+			          "Target": {
+			            "Entity": "entity__measure.cumulative_bad_rate_by_MOB"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.cumulative_bad_rate_by_MOB"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_cumulative_bad_rate_by_MOB"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_vintage_drift_20112016": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.vintage_drift_20112016": {
+			          "Target": {
+			            "Entity": "entity__measure.vintage_drift_20112016"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.vintage_drift_20112016"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_vintage_drift_20112016"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_card_1": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.card_1": {
+			          "Target": {
+			            "Entity": "entity__measure.card_1"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.card_1"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_card_1"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_entity_1_": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.entity_1_": {
+			          "Target": {
+			            "Entity": "entity__measure.entity_1_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.entity_1_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_1_"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_entity_2_": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.entity_2_": {
+			          "Target": {
+			            "Entity": "entity__measure.entity_2_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.entity_2_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_2_"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_entity_3_": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.entity_3_": {
+			          "Target": {
+			            "Entity": "entity__measure.entity_3_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.entity_3_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_3_"
+			        }
+			      ]
+			    },
+			    "dim_date_has_entity__measure_best_mature_vintage": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "entity__measure.best_mature_vintage": {
+			          "Target": {
+			            "Entity": "entity__measure.best_mature_vintage"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.best_mature_vintage"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_best_mature_vintage"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_best_mature_vintage": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.best_mature_vintage": {
+			          "Target": {
+			            "Entity": "entity__measure.best_mature_vintage"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.best_mature_vintage"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_best_mature_vintage"
+			        }
+			      ]
+			    },
+			    "dim_date_has_entity__measure_worst_mature_vintage": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "entity__measure.worst_mature_vintage": {
+			          "Target": {
+			            "Entity": "entity__measure.worst_mature_vintage"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.worst_mature_vintage"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_worst_mature_vintage"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_worst_mature_vintage": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.worst_mature_vintage": {
+			          "Target": {
+			            "Entity": "entity__measure.worst_mature_vintage"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.worst_mature_vintage"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_worst_mature_vintage"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_mature_loan_count": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.mature_loan_count": {
+			          "Target": {
+			            "Entity": "entity__measure.mature_loan_count"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.mature_loan_count"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_mature_loan_count"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_measure": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.measure": {
+			          "Target": {
+			            "Entity": "entity__measure.measure"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.measure"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_measure"
+			        }
+			      ]
+			    },
+			    "dim_grade_has_entity__measure_excess_loss_uplift_bps": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Grade"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_grade": {
+			          "Target": {
+			            "Entity": "dim_grade"
+			          }
+			        },
+			        "entity__measure.excess_loss_uplift_bps": {
+			          "Target": {
+			            "Entity": "entity__measure.excess_loss_uplift_bps"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_grade"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.excess_loss_uplift_bps"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_grades_have_excess_loss_uplift_bps"
+			        }
+			      ]
+			    },
+			    "dim_loan_status_has_entity__measure_excess_loss_uplift_bps": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_LoanStatus"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        },
+			        "entity__measure.excess_loss_uplift_bps": {
+			          "Target": {
+			            "Entity": "entity__measure.excess_loss_uplift_bps"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.excess_loss_uplift_bps"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_excess_loss_uplift_bps"
+			        }
+			      ]
+			    },
+			    "dim_purpose_has_entity__measure_excess_loss_uplift_bps": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Purpose"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_purpose": {
+			          "Target": {
+			            "Entity": "dim_purpose"
+			          }
+			        },
+			        "entity__measure.excess_loss_uplift_bps": {
+			          "Target": {
+			            "Entity": "entity__measure.excess_loss_uplift_bps"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_purpose"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.excess_loss_uplift_bps"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_purposes_have_excess_loss_uplift_bps"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_excess_loss_uplift_bps": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.excess_loss_uplift_bps": {
+			          "Target": {
+			            "Entity": "entity__measure.excess_loss_uplift_bps"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.excess_loss_uplift_bps"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_excess_loss_uplift_bps"
+			        }
+			      ]
+			    },
+			    "dim_grade_has_entity__measure_segment_mispricing_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Grade"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_grade": {
+			          "Target": {
+			            "Entity": "dim_grade"
+			          }
+			        },
+			        "entity__measure.segment_mispricing_gap": {
+			          "Target": {
+			            "Entity": "entity__measure.segment_mispricing_gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_grade"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.segment_mispricing_gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_grades_have_segment_mispricing_gap"
+			        }
+			      ]
+			    },
+			    "dim_loan_status_has_entity__measure_segment_mispricing_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_LoanStatus"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        },
+			        "entity__measure.segment_mispricing_gap": {
+			          "Target": {
+			            "Entity": "entity__measure.segment_mispricing_gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.segment_mispricing_gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_segment_mispricing_gap"
+			        }
+			      ]
+			    },
+			    "dim_purpose_has_entity__measure_segment_mispricing_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Purpose"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_purpose": {
+			          "Target": {
+			            "Entity": "dim_purpose"
+			          }
+			        },
+			        "entity__measure.segment_mispricing_gap": {
+			          "Target": {
+			            "Entity": "entity__measure.segment_mispricing_gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_purpose"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.segment_mispricing_gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_purposes_have_segment_mispricing_gap"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_segment_mispricing_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.segment_mispricing_gap": {
+			          "Target": {
+			            "Entity": "entity__measure.segment_mispricing_gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.segment_mispricing_gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_segment_mispricing_gap"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_segment_exposure": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.segment_exposure": {
+			          "Target": {
+			            "Entity": "entity__measure.segment_exposure"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.segment_exposure"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_segment_exposure"
+			        }
+			      ]
+			    },
+			    "dim_loan_status_has_entity__measure_excess_loss_contribution": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_LoanStatus"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        },
+			        "entity__measure.excess_loss_contribution": {
+			          "Target": {
+			            "Entity": "entity__measure.excess_loss_contribution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.excess_loss_contribution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_excess_loss_contribution"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_excess_loss_contribution": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.excess_loss_contribution": {
+			          "Target": {
+			            "Entity": "entity__measure.excess_loss_contribution"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.excess_loss_contribution"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_excess_loss_contribution"
+			        }
+			      ]
+			    },
+			    "chargeoff_stress__has_entity__measure_stressed_grade_avg_net_loss_rate": {
+			      "Binding": {
+			        "ConceptualEntity": "Charge-off Stress %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "chargeoff_stress_": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_"
+			          }
+			        },
+			        "entity__measure.stressed_grade_avg_net_loss_rate": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_grade_avg_net_loss_rate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "chargeoff_stress_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_grade_avg_net_loss_rate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "chargeoff_stress__have_stressed_grade_avg_net_loss_rate"
+			        }
+			      ]
+			    },
+			    "dim_loan_status_has_entity__measure_stressed_grade_avg_net_loss_rate": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_LoanStatus"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        },
+			        "entity__measure.stressed_grade_avg_net_loss_rate": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_grade_avg_net_loss_rate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_grade_avg_net_loss_rate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_stressed_grade_avg_net_loss_rate"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_stressed_grade_avg_net_loss_rate": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.stressed_grade_avg_net_loss_rate": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_grade_avg_net_loss_rate"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_grade_avg_net_loss_rate"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_stressed_grade_avg_net_loss_rate"
+			        }
+			      ]
+			    },
+			    "chargeoff_stress__has_entity__measure_stressed_mispricing_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Charge-off Stress %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "chargeoff_stress_": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_"
+			          }
+			        },
+			        "entity__measure.stressed_mispricing_gap": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_mispricing_gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "chargeoff_stress_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_mispricing_gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "chargeoff_stress__have_stressed_mispricing_gap"
+			        }
+			      ]
+			    },
+			    "dim_loan_status_has_entity__measure_stressed_mispricing_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_LoanStatus"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        },
+			        "entity__measure.stressed_mispricing_gap": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_mispricing_gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_mispricing_gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_stressed_mispricing_gap"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_stressed_mispricing_gap": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.stressed_mispricing_gap": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_mispricing_gap"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_mispricing_gap"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_stressed_mispricing_gap"
+			        }
+			      ]
+			    },
+			    "chargeoff_stress__has_entity__measure_stressed_excess_loss": {
+			      "Binding": {
+			        "ConceptualEntity": "Charge-off Stress %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "chargeoff_stress_": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_"
+			          }
+			        },
+			        "entity__measure.stressed_excess_loss": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_excess_loss"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "chargeoff_stress_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_excess_loss"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "chargeoff_stress__have_stressed_excess_loss"
+			        }
+			      ]
+			    },
+			    "dim_grade_has_entity__measure_stressed_excess_loss": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Grade"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_grade": {
+			          "Target": {
+			            "Entity": "dim_grade"
+			          }
+			        },
+			        "entity__measure.stressed_excess_loss": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_excess_loss"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_grade"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_excess_loss"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_grades_have_stressed_excess_loss"
+			        }
+			      ]
+			    },
+			    "dim_loan_status_has_entity__measure_stressed_excess_loss": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_LoanStatus"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        },
+			        "entity__measure.stressed_excess_loss": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_excess_loss"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_excess_loss"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_stressed_excess_loss"
+			        }
+			      ]
+			    },
+			    "dim_purpose_has_entity__measure_stressed_excess_loss": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Purpose"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_purpose": {
+			          "Target": {
+			            "Entity": "dim_purpose"
+			          }
+			        },
+			        "entity__measure.stressed_excess_loss": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_excess_loss"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_purpose"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_excess_loss"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_purposes_have_stressed_excess_loss"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_stressed_excess_loss": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.stressed_excess_loss": {
+			          "Target": {
+			            "Entity": "entity__measure.stressed_excess_loss"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.stressed_excess_loss"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_stressed_excess_loss"
+			        }
+			      ]
+			    },
+			    "chargeoff_stress__has_entity__measure_sensitivity_narrative": {
+			      "Binding": {
+			        "ConceptualEntity": "Charge-off Stress %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "chargeoff_stress_": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_"
+			          }
+			        },
+			        "entity__measure.sensitivity_narrative": {
+			          "Target": {
+			            "Entity": "entity__measure.sensitivity_narrative"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "chargeoff_stress_"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sensitivity_narrative"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "chargeoff_stress__have_sensitivity_narrative"
+			        }
+			      ]
+			    },
+			    "dim_grade_has_entity__measure_sensitivity_narrative": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Grade"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_grade": {
+			          "Target": {
+			            "Entity": "dim_grade"
+			          }
+			        },
+			        "entity__measure.sensitivity_narrative": {
+			          "Target": {
+			            "Entity": "entity__measure.sensitivity_narrative"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_grade"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sensitivity_narrative"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_grades_have_sensitivity_narrative"
+			        }
+			      ]
+			    },
+			    "dim_loan_status_has_entity__measure_sensitivity_narrative": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_LoanStatus"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        },
+			        "entity__measure.sensitivity_narrative": {
+			          "Target": {
+			            "Entity": "entity__measure.sensitivity_narrative"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sensitivity_narrative"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_sensitivity_narrative"
+			        }
+			      ]
+			    },
+			    "dim_purpose_has_entity__measure_sensitivity_narrative": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim_Purpose"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_purpose": {
+			          "Target": {
+			            "Entity": "dim_purpose"
+			          }
+			        },
+			        "entity__measure.sensitivity_narrative": {
+			          "Target": {
+			            "Entity": "entity__measure.sensitivity_narrative"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_purpose"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sensitivity_narrative"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_purposes_have_sensitivity_narrative"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_entity__measure_sensitivity_narrative": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "entity__measure.sensitivity_narrative": {
+			          "Target": {
+			            "Entity": "entity__measure.sensitivity_narrative"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.sensitivity_narrative"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_sensitivity_narrative"
+			        }
+			      ]
+			    },
+			    "chargeoff_stress__has_chargeoff_stress_": {
+			      "Binding": {
+			        "ConceptualEntity": "Charge-off Stress %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "chargeoff_stress_": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_"
+			          }
+			        },
+			        "chargeoff_stress_.chargeoff_stress_": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_.chargeoff_stress_"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "chargeoff_stress_"
+			            },
+			            "Object": {
+			              "Role": "chargeoff_stress_.chargeoff_stress_"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "chargeoff_stress__have_chargeoff_stress_"
+			        }
+			      ]
+			    },
+			    "chargeoff_stress__has_chargeoff_stress__value": {
+			      "Binding": {
+			        "ConceptualEntity": "Charge-off Stress %"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "chargeoff_stress_": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_"
+			          }
+			        },
+			        "chargeoff_stress_.chargeoff_stress__value": {
+			          "Target": {
+			            "Entity": "chargeoff_stress_.chargeoff_stress__value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "chargeoff_stress_"
+			            },
+			            "Object": {
+			              "Role": "chargeoff_stress_.chargeoff_stress__value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "chargeoff_stress__have_chargeoff_stress__value"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_dim_grade": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "dim_grade": {
+			          "Target": {
+			            "Entity": "dim_grade"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "dim_grade"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_dim_grades"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_grade"
+			            },
+			            "Object": {
+			              "Role": "fact_loan"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_grades_have_fact_loans"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_dim_purpose": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "dim_purpose": {
+			          "Target": {
+			            "Entity": "dim_purpose"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "dim_purpose"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_dim_purposes"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_purpose"
+			            },
+			            "Object": {
+			              "Role": "fact_loan"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_purposes_have_fact_loans"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_dim_geography": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "dim_geography": {
+			          "Target": {
+			            "Entity": "dim_geography"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "dim_geography"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_dim_geographies"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_geography"
+			            },
+			            "Object": {
+			              "Role": "fact_loan"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_geographies_have_fact_loans"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_dim_emp_length": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "dim_emp_length": {
+			          "Target": {
+			            "Entity": "dim_emp_length"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "dim_emp_length"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_dim_emp_lengths"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_emp_length"
+			            },
+			            "Object": {
+			              "Role": "fact_loan"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_emp_lengths_have_fact_loans"
+			        }
+			      ]
+			    },
+			    "fact_loan_has_dim_loan_status": {
+			      "Binding": {
+			        "ConceptualEntity": "Fact_Loan"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_loan": {
+			          "Target": {
+			            "Entity": "fact_loan"
+			          }
+			        },
+			        "dim_loan_status": {
+			          "Target": {
+			            "Entity": "dim_loan_status"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_loan"
+			            },
+			            "Object": {
+			              "Role": "dim_loan_status"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_loans_have_dim_loan_statuses"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_loan_status"
+			            },
+			            "Object": {
+			              "Role": "fact_loan"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_loan_statuses_have_fact_loans"
 			        }
 			      ]
 			    },

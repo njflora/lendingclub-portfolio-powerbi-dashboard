@@ -27,8 +27,9 @@
                 }
               },
               "queryRef": "Charge-off Stress %.Charge-off Stress %",
-              "nativeQueryRef": "Charge-off Stress %",
-              "active": true
+              "nativeQueryRef": "Benchmark Stress %",
+              "active": true,
+              "displayName": "Benchmark Stress %"
             }
           ]
         }
