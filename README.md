@@ -77,7 +77,7 @@ I didn't build incremental refresh, because this is a one-off historical extract
 
 ## The report
 
-<img width="1311" height="733" alt="01_portfolio_overview" src="https://github.com/user-attachments/assets/1b8d62d0-c605-4ea5-9102-161f9a55d797" />
+<img width="1310" height="732" alt="01_portfolio_overview" src="https://github.com/user-attachments/assets/f35a8d43-9044-4bac-91c6-f30afeaf6c9d" />
 
 ### 1. Portfolio Overview
 The context before any claims: 2.26M loans, a 13.38% dollar-weighted average rate, a 19.98% charge-off rate among resolved loans, and **40.37% of the book still open**, shown up front so nothing later reads as more certain than it is. Also covers the grade and purpose mix, and funded volume over time.
